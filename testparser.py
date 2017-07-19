@@ -102,5 +102,16 @@ class TestParser(unittest.TestCase):
         parser1.update(test_dict)
         self.assertEquals(parser1.dumps(), parser2.dumps())
 
+    def test_get(self):
+        parser1 = jsonparser.JsonParser()
+        parser1.loads(test_string)
+        self.assertEquals(parser1["number"], 163)
+
+    def test_set(self):
+        parser1 = jsonparser.JsonParser()
+        parser1.loads(test_string)
+        parser1["number"] = 163163
+        self.assertEquals(parser1["number"], 163163)
+
 if __name__ == '__main__':
     unittest.main()

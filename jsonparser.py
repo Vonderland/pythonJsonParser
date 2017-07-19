@@ -253,3 +253,10 @@ class JsonParser:
         for key in d.keys():
             if isinstance(key, str) or isinstance(key, unicode):  # key不是字符串时忽略
                 self._data[key] = deep_copy(d[key])
+
+    def __getitem__(self, key):
+        return deep_copy(self._data[key])
+
+    def __setitem__(self, key, value):
+        if isinstance(key, str) or isinstance(key, unicode):  # key不是字符串时忽略
+                self._data[key] = deep_copy(value)
