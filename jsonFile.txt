@@ -1,0 +1,26 @@
+{
+    "null": null,
+    "true": true,
+    "false": false,
+    "number": 163,
+    "float": 1.63,
+    "array": [
+        1,
+        6,
+        3
+    ],
+    "empty array": [],
+    "empty string": "",
+    "empty object": {},
+    "object": {
+        "space": " ",
+        "backslash": "\\",
+        "controls": "\b\f\n\r\t"
+    },
+    "one item array": [
+        "a"
+    ],
+    "one item object": {
+        "netease": "CC"
+    }
+}
