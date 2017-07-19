@@ -242,7 +242,14 @@ class JsonParser:
 
     def load_dict(self, d):
         self._data = {}
-        self._data = deep_copy(d)
+        for key in d.keys():
+            if isinstance(key, str) or isinstance(key, unicode):  # key不是字符串时忽略
+                self._data[key] = deep_copy(d[key])
 
     def dump_dict(self):
         return deep_copy(self._data)
+
+    def update(self, d):
+        for key in d.keys():
+            if isinstance(key, str) or isinstance(key, unicode):  # key不是字符串时忽略
+                self._data[key] = deep_copy(d[key])
