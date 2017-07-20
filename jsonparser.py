@@ -72,7 +72,6 @@ def make_array(s):
         if s[index] != ',':  # 不是逗号，可能是读到数组尾或者是异常
             break
         index += 1  # 跳过逗号
-        # index = skip_space(s, index)
     if s[index] != ']':
         raise ValueError("Invalid Json object, not an array, no ']'")
     return array, index + 1
@@ -118,6 +117,8 @@ def make_number(s):
 
 def make_object(s):
     '''由String生成对应字典'''
+    if not isinstance(s, unicode):
+            s = s.decode('utf-8')  # 处理出现中文时候会出现的乱码
     dic = {}
     index = skip_space(s, 0);
     if s[index] != '{':
